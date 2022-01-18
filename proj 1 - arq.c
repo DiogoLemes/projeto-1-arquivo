@@ -4,7 +4,7 @@
 #include <conio.h>
 #include <stdbool.h>
 
-//Funções
+//FunÃ§Ãµes
 void cabecalho(FILE **in, FILE **out, int *linhas, int *colunas, int *lim_cinza, int opcao);
 void opcaoA(FILE *in, FILE *out, int linhas, int colunas, int lim_cinza);
 void opcaoB(FILE *in, FILE *out, int linhas, int colunas, int lim_cinza);
@@ -46,21 +46,21 @@ int main()
 		{
 			cabecalho(&in, &out, &linhas, &colunas, &lim_cinza, opcao);
 			opcaoA(in, out, linhas, colunas, lim_cinza);
-			printf("limiarizacao feita");//função 1
+			printf("limiarizacao feita");//funÃ§Ã£o 1
 			printf("\n\n");
 		}
 		else if(opcao == 2)
 		{
 			cabecalho(&in, &out, &linhas, &colunas, &lim_cinza, opcao);
 			opcaoB(in, out, linhas, colunas, lim_cinza);
-			printf("negativo feito");//função 2
+			printf("negativo feito");//funÃ§Ã£o 2
 			printf("\n\n");
 		}
 		else if(opcao == 3)
 		{
 			cabecalho(&in, &out, &linhas, &colunas, &lim_cinza, opcao);
 			opcaoC(in, out, linhas, colunas, lim_cinza);
-			printf("histograma feito");//função 3
+			printf("histograma feito");//funÃ§Ã£o 3
 			printf("\n\n");
 		}
 		else if(opcao > 3)
@@ -74,6 +74,8 @@ int main()
 		}
 	}
 	
+	fclose(in);
+	fclose(out);
 	return 0;
 }
 
@@ -96,7 +98,7 @@ void cabecalho(FILE **in, FILE **out, int *linhas, int *colunas, int *lim_cinza,
 		*out = fopen("histograma.txt","wt");//faz .txt para o histograma
 	}
 	
-    fgets(tipo_arq, 10, *in); //lê a primeira linha (P2)
+    fgets(tipo_arq, 10, *in); //lÃª a primeira linha (P2)
     fprintf(*out, "%s", tipo_arq); //printa P2 no arquivo final
 
     fscanf(*in, "%d %d", colunas, linhas);
@@ -114,8 +116,8 @@ void opcaoA(FILE *in, FILE *out, int linhas, int colunas, int lim_cinza)
 	int pixel;
 	int i, j;
 	
-	//execução
-	for(i = 0; i < linhas; i++)//limiarização
+	//execuÃ§Ã£o
+	for(i = 0; i < linhas; i++)//limiarizaÃ§Ã£o
 	{
 		for(j = 0; j < colunas; j++)
 		{
@@ -123,12 +125,12 @@ void opcaoA(FILE *in, FILE *out, int linhas, int colunas, int lim_cinza)
 			if(pixel > 150)
 			{
 				
-				pixel = lim_cinza;//valor máximo
+				pixel = lim_cinza;//valor mÃ¡ximo
 				fprintf(out, "%d ",pixel);
 			}
 			else
 			{
-				pixel = 0;//valor mínimo
+				pixel = 0;//valor mÃ­nimo
 				fprintf(out, "%d ",pixel);
 			}
 		}
@@ -140,7 +142,7 @@ void opcaoB(FILE *in, FILE *out, int linhas, int colunas, int lim_cinza)
 	int pixel;
 	int i, j;
 	
-	//execução
+	//execuÃ§Ã£o
 	for(i = 0; i < linhas; i++)//negativo
 	{
 		for(j = 0; j < colunas; j++)
@@ -165,7 +167,7 @@ void opcaoC(FILE *in, FILE *out, int linhas, int colunas, int lim_cinza)
 	{
 		valorPixel[i] = 0;
 	}
-	//execução
+	//execuÃ§Ã£o
 	for(i = 0; i < linhas; i++)//histograma
 	{
 		for(j = 0; j < colunas; j++)
@@ -179,6 +181,6 @@ void opcaoC(FILE *in, FILE *out, int linhas, int colunas, int lim_cinza)
 	
 	for(i = 0; i < alcance_cinza; i++)
 	{
-		fprintf(out, "nº de pixel %d: %d \n",i, valorPixel[i]);
+		fprintf(out, "nÂº de pixel %d: %d \n",i, valorPixel[i]);
 	}
 }
