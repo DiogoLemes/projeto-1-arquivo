@@ -47,26 +47,26 @@ int main()
 			cabecalho(&in, &out, &linhas, &colunas, &lim_cinza, opcao);
 			opcaoA(in, out, linhas, colunas, lim_cinza);
 			printf("limiarizacao feita");//função 1
-			printf("\n\n");
+			printf("\n\n\n");
 		}
 		else if(opcao == 2)
 		{
 			cabecalho(&in, &out, &linhas, &colunas, &lim_cinza, opcao);
 			opcaoB(in, out, linhas, colunas, lim_cinza);
 			printf("negativo feito");//função 2
-			printf("\n\n");
+			printf("\n\n\n");
 		}
 		else if(opcao == 3)
 		{
 			cabecalho(&in, &out, &linhas, &colunas, &lim_cinza, opcao);
 			opcaoC(in, out, linhas, colunas, lim_cinza);
 			printf("histograma feito");//função 3
-			printf("\n\n");
+			printf("\n\n\n");
 		}
 		else if(opcao > 3)
 		{
 			printf("opcao invalida");
-			printf("\n\n");
+			printf("\n\n\n");
 		}
 		else if(opcao == 0)
 		{
